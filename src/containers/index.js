@@ -1,0 +1,11 @@
+export { default as Blog } from './blog/Blog';
+export { default as Features } from './features/Feature';
+export { default as Header } from './header/Header';
+export { default as Footer } from './footer/Footer';
+export { default as Possibility } from './possibility/Possibility';
+export { default as Trousers } from './trousers/trousers';
+export { default as Shirts } from './shirts/shirts';
+export { default as Wedding } from './wedding/wedding';
+export { default as WhatGPT3 } from './whatGPT3/WhatGPT3';
+export { default as Description } from './description/description';
+export { default as CartPage } from './cart/cart'

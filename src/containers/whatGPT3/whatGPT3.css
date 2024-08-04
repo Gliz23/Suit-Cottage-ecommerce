@@ -1,0 +1,147 @@
+.on-boarding{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding:2rem;
+    background-color: #f5f5f5;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #333;
+  }
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    margin-bottom: 2rem;
+    background: url('../../assets/hero1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.right-hero, .left-hero{
+    width: 50%;
+    padding: 2rem 3rem;
+}
+.right-hero{
+ display: flex;
+ justify-content: end;
+ align-items: right;
+ padding-right: 50px;
+}
+
+.left-hero{
+    display: flex;
+    align-items: left;
+    padding-left: 50px;
+}
+.left-text, 
+.right-text{
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.hero-text{
+    font-size: 50px;
+    margin: 30px;
+    font-family: "Tangerine", cursive;
+    font-weight: 600;
+    font-style: normal; 
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title, .sub-title{
+    color: rgb(22, 22, 22);
+    font-size: 30px;
+    text-align: center;
+    line-height: 1.7;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.sub-title{
+    font-size:16px;
+    font-weight: 400;
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    width:100%;
+    height:auto;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .part {
+    width: 20%;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .parta {
+    height: 320px;
+    overflow: hidden;
+  }
+  
+  .casual-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .partb {
+    height: 0px;
+  }
+
+ 
+  
+  .welc-pg {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2rem;
+  }
+
+.welc-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .welc-sub-text {
+    font-size: 1.5rem;
+    color: #676767;
+    text-align: center;
+    margin-top: 0;
+  }
+/* .welc-text{
+    font-family: "Spirax", system-ui;  
+} */
+.welc-sub-text{
+    font-size: 36px; ;
+    /* font-family: "Squada One", sans-serif; */
+}
+
+ 
