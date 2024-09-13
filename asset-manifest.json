@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Suit-Cottage-ecommerce/static/css/main.c24ed8f1.css",
-    "main.js": "/Suit-Cottage-ecommerce/static/js/main.a5c1fed6.js",
+    "main.js": "/Suit-Cottage-ecommerce/static/js/main.b7a6bd66.js",
     "static/media/wine.png": "/Suit-Cottage-ecommerce/static/media/wine.37f321665613613837f2.png",
     "static/media/yh.png": "/Suit-Cottage-ecommerce/static/media/yh.239b7b05150f75238402.png",
     "static/media/7.jpg": "/Suit-Cottage-ecommerce/static/media/7.e36e8fa7b77d6a289823.jpg",
@@ -21,10 +21,10 @@
     "static/media/3.png": "/Suit-Cottage-ecommerce/static/media/3.1f4ab07a1757da9562a6.png",
     "index.html": "/Suit-Cottage-ecommerce/index.html",
     "main.c24ed8f1.css.map": "/Suit-Cottage-ecommerce/static/css/main.c24ed8f1.css.map",
-    "main.a5c1fed6.js.map": "/Suit-Cottage-ecommerce/static/js/main.a5c1fed6.js.map"
+    "main.b7a6bd66.js.map": "/Suit-Cottage-ecommerce/static/js/main.b7a6bd66.js.map"
   },
   "entrypoints": [
     "static/css/main.c24ed8f1.css",
-    "static/js/main.a5c1fed6.js"
+    "static/js/main.b7a6bd66.js"
   ]
 }
