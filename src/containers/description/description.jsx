@@ -3,38 +3,47 @@ import './description.css';
 import { setCartItems } from '../../product.jsx';
 
 const Description = (props) => {
-  
   const [activeBtn, setActiveBtn] = useState('regular');
   const sizeInputs = useRef([]);
   const dropdownContents = useRef([]);
-  const [cartItems] = [];
-  const trouserSizes = useMemo(() => ['S', 'M', 'L', 'XL'], []);
+  const [cartItems, setCartItems] = useState([]);
+  const availableSizes = useMemo(() => ['Small', 'Medium', 'Large', 'X-Large'], []);
   const [product, setProduct] = useState({
     img: props.img,
+    name: props.name,
+    price: props.price,
+    description: props.description,
+    size: '',
   });
 
   const handleSizeBtnClick = (btn) => {
     setActiveBtn(btn);
+    setProduct((prevProduct) => ({ ...prevProduct, size: btn }));
   };
-
-  
 
   const handleAddToCart = () => {
     addToCart(product);
   };
+
   const addToCart = () => {
-    setCartItems([...cartItems, product]);
+    setCartItems((prevCartItems) => [...prevCartItems, product]);
   };
 
   useEffect(() => {
+    populateDropdowns();
+  }, []);
+
+  const populateDropdowns = () => {
     sizeInputs.current.forEach((input, index) => {
       const dropdownContent = dropdownContents.current[index];
-      trouserSizes.forEach((size) => {
+      dropdownContent.innerHTML = ''; // Clear the dropdown content
+      availableSizes.forEach((size) => {
         const option = document.createElement('div');
         option.textContent = size;
         option.addEventListener('click', () => {
           input.value = size;
           dropdownContent.style.display = 'none';
+          setProduct((prevProduct) => ({ ...prevProduct, size }));
         });
         dropdownContent.appendChild(option);
       });
@@ -43,67 +52,35 @@ const Description = (props) => {
         dropdownContent.style.display = 'block';
       });
     });
-  }, [trouserSizes, sizeInputs, dropdownContents]);
+  };
 
   return (
     <div className="description">
       <div className="heroa">
-        <img
-          src={props.img}
-          alt="Gentleman in a shirt"
-          className="description-img"
-        />
+        <img src={props.img} alt={props.name} className="description-img" />
       </div>
       <div className="herob">
         <div className="desc">
-          <h2 className="heading">Description</h2>
-          <p className="desc-text">
-            This classic men's black suit is the perfect choice for any formal
-            occasion, especially weddings. Crafted from high-quality wool
-            blended fabric, it offers a sleek, sophisticated look that will have
-            you feeling confident and stylish. The modern, slim-fit design the
-            body, while the notched lapel flatters and two-button closure
-            provide a timeless aesthetic. Pair this versatile suit with a crisp
-            white shirt and polished dress shoes for a polished, elegant
-            ensemble that will have you looking your best on the big day.
-            Whether you're the groom, suit is a timeless investment piece that
-            will serve you well.
-          </p>
+          <h2 className="heading">{props.name}</h2>
+          <p className="desc-text">{props.description}</p>
+          <p className="price">Price: ${props.price}</p>
         </div>
       </div>
       <div className="heroc">
         <div className="size-box">
           <div className="size-title">
-            <p> Choose the perfect size here </p>
+            <p>Choose the perfect size here</p>
           </div>
           <div className="size-btns">
-            <button
-              className={activeBtn === 'small' ? 'yes' : 'no'}
-              onClick={() => handleSizeBtnClick('small')}
-            >
-              Slim
-            </button>
-
-            <button
-              className={activeBtn === 'regular' ? 'yes' : 'no'}
-              onClick={() => handleSizeBtnClick('regular')}
-            >
-              Regular
-            </button>
-
-            <button
-              className={activeBtn === 'large' ? 'yes' : 'no'}
-              onClick={() => handleSizeBtnClick('large')}
-            >
-              Large
-            </button>
-
-            <button
-              className={activeBtn === 'xtr-large' ? 'yes' : 'no'}
-              onClick={() => handleSizeBtnClick('xtr-large')}
-            >
-              Extra Large
-            </button>
+            {['Small', 'Regular', 'Large', 'Extra Large'].map((size) => (
+              <button
+                key={size}
+                className={activeBtn === size.toLowerCase() ? 'yes' : 'no'}
+                onClick={() => handleSizeBtnClick(size.toLowerCase())}
+              >
+                {size}
+              </button>
+            ))}
           </div>
           <div className="sizes">
             <div className="Jacket">
@@ -112,7 +89,7 @@ const Description = (props) => {
                 <div className="dropdown">
                   <input
                     type="text"
-                    id="trouserSize"
+                    id="jacketSize"
                     ref={(input) => {
                       sizeInputs.current[0] = input;
                       dropdownContents.current[0] = input?.nextSibling;
@@ -123,11 +100,11 @@ const Description = (props) => {
                 </div>
               </div>
               <div className="length">
-                <h3 className="top">Jacket</h3>
+                <h3 className="top">Jacket Length</h3>
                 <div className="dropdown">
                   <input
                     type="text"
-                    id="trouserSize"
+                    id="jacketLength"
                     ref={(input) => {
                       sizeInputs.current[1] = input;
                       dropdownContents.current[1] = input?.nextSibling;
@@ -140,11 +117,11 @@ const Description = (props) => {
             </div>
             <div className="Trouser">
               <div className="size">
-                <h3 className="top">Jacket</h3>
+                <h3 className="top">Trouser Waist</h3>
                 <div className="dropdown">
                   <input
                     type="text"
-                    id="trouserSize"
+                    id="trouserWaist"
                     ref={(input) => {
                       sizeInputs.current[2] = input;
                       dropdownContents.current[2] = input?.nextSibling;
@@ -155,11 +132,11 @@ const Description = (props) => {
                 </div>
               </div>
               <div className="length">
-                <h3 className="top">Jacket</h3>
+                <h3 className="top">Trouser Length</h3>
                 <div className="dropdown">
                   <input
                     type="text"
-                    id="trouserSize"
+                    id="trouserLength"
                     ref={(input) => {
                       sizeInputs.current[3] = input;
                       dropdownContents.current[3] = input?.nextSibling;
@@ -172,11 +149,11 @@ const Description = (props) => {
             </div>
             <div className="Waist-Coat">
               <div className="length">
-                <h3 className="top">Jacket</h3>
+                <h3 className="top">Waistcoat Length</h3>
                 <div className="dropdown">
                   <input
                     type="text"
-                    id="trouserSize"
+                    id="waistcoatLength"
                     ref={(input) => {
                       sizeInputs.current[4] = input;
                       dropdownContents.current[4] = input?.nextSibling;
@@ -187,11 +164,11 @@ const Description = (props) => {
                 </div>
               </div>
               <div className="length">
-                <h3 className="top">Jacket</h3>
+                <h3 className="top">Waistcoat Fit</h3>
                 <div className="dropdown">
                   <input
                     type="text"
-                    id="trouserSize"
+                    id="waistcoatFit"
                     ref={(input) => {
                       sizeInputs.current[5] = input;
                       dropdownContents.current[5] = input?.nextSibling;
@@ -204,7 +181,9 @@ const Description = (props) => {
             </div>
           </div>
           <div className="cart-btn-cont">
-            <button className="cart-btn" onClick={handleAddToCart}>Add to Cart</button>
+            <button className="cart-btn" onClick={handleAddToCart}>
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
@@ -213,4 +192,3 @@ const Description = (props) => {
 };
 
 export default Description;
-// Soulution: create a different file to store the items like we did in infograph(setSentences) and import it into app.

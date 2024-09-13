@@ -1,73 +1,70 @@
-import React from 'react';
-import './shirts.css';
-import img1 from '../../assets/Shirts/1.jpg';
-import img2 from '../../assets/Shirts/2.jpg';
-import img3 from '../../assets/Shirts/3.jpg';
-import img4 from '../../assets/Shirts/4.jpg';
-import img5 from '../../assets/Shirts/5.jpg';
-import img6 from '../../assets/Shirts/6.jpg';
-import img7 from '../../assets/Shirts/7.jpg';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Description } from '../../containers';
 
+
+const images = [
+  { id: 1, src: require('../../assets/Shirts/1.jpg'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 2, src: require('../../assets/Shirts/2.jpg'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 3, src: require('../../assets/Shirts/3.jpg'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 4, src: require('../../assets/Shirts/4.jpg'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 5, src: require('../../assets/Shirts/5.jpg'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 6, src: require('../../assets/Shirts/6.jpg'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 7, src: require('../../assets/Shirts/7.jpg'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+];
+
+const ImageCard = React.memo(({ image, onImageClick }) => (
+  <div className="part" key={image.id}>
+    <div className="parta">
+      <img
+        src={image.src}
+        alt={`Boy in casual wear ${image.id}`}
+        className="casual-img"
+        onClick={() => onImageClick(image)}
+      />
+    </div>
+    <div className="partb">
+      <h2 className="descr">{image.description}</h2>
+      <h3 className="price">{image.price}</h3>
+    </div>
+  </div>
+));
+
 const Shirts = () => {
   const navigate = useNavigate();
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
 
   return (
     <div className="on-boarding">
-      <div className="shirts">
-        <div className="right-ar"></div>
-        <div className="hero1">
-          <img src={img1} alt="Gentleman in a shirt" className="shirt-img" />
+      <div className="section1">
+        <div className="row">
+          {images.map((image) => (
+            <ImageCard key={image.id} image={image} onImageClick={handleImageClick} />
+          ))}
         </div>
-        <div className="hero2">
-          <div className="hero2a">
-            <img src={img2} alt="Gentleman in a shirt" className="shirt-img" />
-          </div>
-          <div className="hero2b">
-            <img src={img3} alt="Gentleman in a shirt" className="shirt-img" />
-          </div>
-          </div>
-        <div className="hero3">
-          <img src={img4} alt="Gentleman in a shirt" className="shirt-img" />
-        </div>
-        <div className="hero4">
-          <div className="hero4a">
-            <img src={img5} alt="Gentleman in a shirt" className="shirt-img" />
-          </div>
-          <div className="hero4b">
-            <img src={img6} alt="Gentleman in a shirt" className="shirt-img" />
-          </div>
-        </div>
-        <div className="hero5">
-          <img src={img7} alt="Gentleman in a shirt" className="shirt-img" />
-        </div>
-            
-        <div className="left-ar"></div>
       </div>
-      <Description
-        img={img1}
-      />
-      <Description
-        img={img2}
-      />
-      <Description
-        img={img3}
-      />
-      <Description
-        img={img4}
-      />
-      <Description
-        img={img5}
-      />
-      <Description
-        num={6}
-        img={img6}
-      />
-      <Description
-        num={7}
-        img={img7}
-      />
+      {selectedImage && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close-button" onClick={handleCloseModal}>
+              &times;
+            </span>
+            <Description
+              img={selectedImage.src}
+              description={selectedImage.description}
+              price={selectedImage.price}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,83 +1,72 @@
-import React from 'react'
-// import Lottie from 'lottie-react';
-// import animationData from '../../assets/Animation 1.json';
-import './feature.css'
-import img1 from '../../assets/Casual/1.png';
-import img2 from '../../assets/Casual/2.png';
-import img3 from '../../assets/Casual/3.png';
-import img4 from '../../assets/Casual/4.png';
-import img5 from '../../assets/Casual/5.png';
-import img6 from '../../assets/Casual/6.png';
-import img7 from '../../assets/Casual/7.png';
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Description } from '../../containers';
+import './feature.css';
 
+const images = [
+  { id: 1, src: require('../../assets/Casual/1.png'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 2, src: require('../../assets/Casual/2.png'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 3, src: require('../../assets/Casual/3.png'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 4, src: require('../../assets/Casual/4.png'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 5, src: require('../../assets/Casual/5.png'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 6, src: require('../../assets/Casual/6.png'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+  { id: 7, src: require('../../assets/Casual/7.png'), description: 'Official Men\'s Suit (Brown) with Light Brown Trousers', price: 'GHc 200' },
+];
 
-
-const Feature = () => {
-  const navigate = useNavigate()
-  
-  return (
-    <div className = "on-boarding">
-      <div className="casual">
-        <div className="right-ar">
-
-        </div>
-        <div className="hero1">     
-          <img src={img1} alt="Boy in casual wear" className="casual-img" />
-        </div>
-        <div className="hero2">
-          <div className="hero2a">
-            <img src={img2} alt="Boy in casual wear" className="casual-img" />
-          </div>
-          <div className="hero2b">
-            <img src={img3} alt="Boy in casual wear" className="casual-img" />
-          </div>
-        </div>
-        <div className="hero3">
-          <img src={img4} alt="Boy in casual wear" className="casual-img" />
-        </div>
-        <div className="hero4">
-          <div className="hero4a">
-            <img src={img5} alt="Boy in casual wear" className="casual-img" />
-          </div>
-          <div className="hero4b">
-            <img src={img6} alt="Boy in casual wear" className="casual-img" />
-          </div>
-        </div>
-        <div className="hero5">
-          <img src={img7} alt="Boy in casual wear" className="casual-img" />  
-        </div>
-        <div className="left-ar">
-          
-        </div>
-      </div>
-      <Description
-        img={img1}
-      />
-      <Description
-        img={img2}
-      />
-      <Description
-        img={img3}
-      />
-      <Description
-        img={img4}
-      />
-      <Description
-        img={img5}
-      />
-      <Description
-        num={6}
-        img={img6}
-      />
-      <Description
-        num={7}
-        img={img7}
+const ImageCard = React.memo(({ image, onImageClick }) => (
+  <div className="part" key={image.id}>
+    <div className="parta">
+      <img
+        src={image.src}
+        alt={`Boy in casual wear ${image.id}`}
+        className="casual-img"
+        onClick={() => onImageClick(image)}
       />
     </div>
-    
-  )
-}
-export default Feature
-  
+    <div className="partb">
+      <h2 className="descr">{image.description}</h2>
+      <h3 className="price">{image.price}</h3>
+    </div>
+  </div>
+));
+
+const Feature = () => {
+  const navigate = useNavigate();
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
+
+  return (
+    <div className="on-boarding">
+      <div className="section1">
+        <div className="row">
+          {images.map((image) => (
+            <ImageCard key={image.id} image={image} onImageClick={handleImageClick} />
+          ))}
+        </div>
+      </div>
+      {selectedImage && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close-button" onClick={handleCloseModal}>
+              &times;
+            </span>
+            <Description
+              img={selectedImage.src}
+              description={selectedImage.description}
+              price={selectedImage.price}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Feature;
