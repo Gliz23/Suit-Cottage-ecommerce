@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.c24ed8f1.css",
-    "main.js": "/static/js/main.5cd64dd2.js",
-    "static/media/wine.png": "/static/media/wine.37f321665613613837f2.png",
-    "static/media/yh.png": "/static/media/yh.239b7b05150f75238402.png",
-    "static/media/7.jpg": "/static/media/7.e36e8fa7b77d6a289823.jpg",
-    "static/media/2.jpg": "/static/media/2.c98a5339645e9e46d3af.jpg",
-    "static/media/1.jpg": "/static/media/1.be2dd46a7cdbccfab9b3.jpg",
-    "static/media/1.png": "/static/media/1.512dfdc805928ebdecb7.png",
-    "static/media/3.jpg": "/static/media/3.12ac314283577964b1fa.jpg",
-    "static/media/7.png": "/static/media/7.63f1b17820d1093ad770.png",
-    "static/media/4.png": "/static/media/4.9a259b05e1a3dfad51d8.png",
-    "static/media/5.jpg": "/static/media/5.f9af3737bba6ec98167d.jpg",
-    "static/media/6.jpg": "/static/media/6.b2677c074af9cafa2eaf.jpg",
-    "static/media/6.png": "/static/media/6.606fe164300bbd04fb0f.png",
-    "static/media/2.png": "/static/media/2.599efebcd8200b347393.png",
-    "static/media/4.jpg": "/static/media/4.eeadb377a983d5054dd2.jpg",
-    "static/media/5.png": "/static/media/5.e8b7098e53fb7e5b96c7.png",
-    "static/media/8.jpg": "/static/media/8.185a87747d05a7fe27a8.jpg",
-    "static/media/3.png": "/static/media/3.1f4ab07a1757da9562a6.png",
-    "index.html": "/index.html",
-    "main.c24ed8f1.css.map": "/static/css/main.c24ed8f1.css.map",
-    "main.5cd64dd2.js.map": "/static/js/main.5cd64dd2.js.map"
+    "main.css": "/Suit-Cottage-ecommerce/static/css/main.c24ed8f1.css",
+    "main.js": "/Suit-Cottage-ecommerce/static/js/main.a5c1fed6.js",
+    "static/media/wine.png": "/Suit-Cottage-ecommerce/static/media/wine.37f321665613613837f2.png",
+    "static/media/yh.png": "/Suit-Cottage-ecommerce/static/media/yh.239b7b05150f75238402.png",
+    "static/media/7.jpg": "/Suit-Cottage-ecommerce/static/media/7.e36e8fa7b77d6a289823.jpg",
+    "static/media/2.jpg": "/Suit-Cottage-ecommerce/static/media/2.c98a5339645e9e46d3af.jpg",
+    "static/media/1.jpg": "/Suit-Cottage-ecommerce/static/media/1.be2dd46a7cdbccfab9b3.jpg",
+    "static/media/1.png": "/Suit-Cottage-ecommerce/static/media/1.512dfdc805928ebdecb7.png",
+    "static/media/3.jpg": "/Suit-Cottage-ecommerce/static/media/3.12ac314283577964b1fa.jpg",
+    "static/media/7.png": "/Suit-Cottage-ecommerce/static/media/7.63f1b17820d1093ad770.png",
+    "static/media/4.png": "/Suit-Cottage-ecommerce/static/media/4.9a259b05e1a3dfad51d8.png",
+    "static/media/5.jpg": "/Suit-Cottage-ecommerce/static/media/5.f9af3737bba6ec98167d.jpg",
+    "static/media/6.jpg": "/Suit-Cottage-ecommerce/static/media/6.b2677c074af9cafa2eaf.jpg",
+    "static/media/6.png": "/Suit-Cottage-ecommerce/static/media/6.606fe164300bbd04fb0f.png",
+    "static/media/2.png": "/Suit-Cottage-ecommerce/static/media/2.599efebcd8200b347393.png",
+    "static/media/4.jpg": "/Suit-Cottage-ecommerce/static/media/4.eeadb377a983d5054dd2.jpg",
+    "static/media/5.png": "/Suit-Cottage-ecommerce/static/media/5.e8b7098e53fb7e5b96c7.png",
+    "static/media/8.jpg": "/Suit-Cottage-ecommerce/static/media/8.185a87747d05a7fe27a8.jpg",
+    "static/media/3.png": "/Suit-Cottage-ecommerce/static/media/3.1f4ab07a1757da9562a6.png",
+    "index.html": "/Suit-Cottage-ecommerce/index.html",
+    "main.c24ed8f1.css.map": "/Suit-Cottage-ecommerce/static/css/main.c24ed8f1.css.map",
+    "main.a5c1fed6.js.map": "/Suit-Cottage-ecommerce/static/js/main.a5c1fed6.js.map"
   },
   "entrypoints": [
     "static/css/main.c24ed8f1.css",
-    "static/js/main.5cd64dd2.js"
+    "static/js/main.a5c1fed6.js"
   ]
 }
